@@ -1,13 +1,9 @@
 import React, { Component } from 'react'
 
 class AddCartItem extends Component {
-  state = {
-    quantity: 0,
-    product_id: 1
-  }
 
   handleChange = e => {
-    let { name, value } = e.target
+    let { name, value } = e.target.value
     this.setState({
       [name]: value
     })
@@ -15,7 +11,7 @@ class AddCartItem extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.props.addItemToCartFunc(this.state)
+    this.props.addItemToCartFunc(this.props.state)
   }
 
   render () {
