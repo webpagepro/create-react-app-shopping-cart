@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import CartItem from '../CartItem/CartItem'
 
-//import CartItemsList from './components/CartItemsList/CartItemsList'
 const CartItems = ({cartItemsList}) => {
     let cartItemsListComponent = cartItemsList.map(item => {
       console.log(cartItemsListComponent)
