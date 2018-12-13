@@ -27,7 +27,7 @@ class AddCartItem extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.props.addItemToCartFunc(this.state)
+    this.props.addItemToCart(this.state)
   }
 
   _onSelectChange = e => {
@@ -48,6 +48,9 @@ _onFormSubmit = e => {
     return (
       <FormGroup>
       <form onSubmit={this.handleSubmit}>
+      <p>Product: <select type="text" 
+                            onChange={this.handleChange}   product="product_id">{optionTags}</select></p>
+
         <p>Quantity: <input 
                           type="text" 
                           name="selectItem"
@@ -55,9 +58,7 @@ _onFormSubmit = e => {
                           onChange={this.handleChange} product="quantity" 
                           value={this.props.quantity} /></p>
                           
-        <p>Product: <select type="text" 
-                            onChange={this.handleChange}   product="product_id">{optionTags}</select></p>
-        <button type="submit" style={{margin:'10px'}}>Submit</button>
+       <Button style={{margin:'10px'}}>Submit</Button>
       </form>
       </FormGroup>
     )

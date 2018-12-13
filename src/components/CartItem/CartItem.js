@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 
 const CartItem = ({item}) => {
-  console.log(item)
+  console.log("item: " + item)
     return (
 
       <div className="list-group-item">
