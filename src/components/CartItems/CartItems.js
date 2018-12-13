@@ -1,12 +1,11 @@
 import React, { Component } from 'react'
 import CartItem from '../CartItem/CartItem'
 
-const CartItems = ({cartItemsList}) => {
-    let cartItemsListComponent = cartItemsList.map(item => {
-      console.log(cartItemsListComponent)
+const CartItems = ({products}) => {
+    let cartItems = products.map(item => {
         return <CartItem key={item.id} item={item} />
       })
-      console.log(cartItemsListComponent);
+      console.log(cartItems);
       
       return (
         <div className="container">
@@ -19,7 +18,7 @@ const CartItems = ({cartItemsList}) => {
                 <div className="col-md-2">Quantity</div>
               </div>
             </div>
-            {cartItemsListComponent}
+            {cartItems}
           </div>
          {/*} Total: ${(total/100).toFixed(2)} */}
         </div>
