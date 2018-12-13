@@ -19,17 +19,18 @@ class AddCartItem extends React.Component {
   }
 
   handleChange = e => {
-    let {product, value } = e.target.value
+    let {name, value } = e.target
     this.setState({
-      [product]: value
+      [name]: value
+
     }) 
   }
 
   handleSubmit = e => {
-    e.preventDefault()
-    this.props.addItemToCart(this.state)
+    e.preventDefault();
+    this.addItemToCart(this.state)
   }
-
+/*
   _onSelectChange = e => {
     this.props.updateSelectedProductId(e.target.value)
 }
@@ -38,11 +39,11 @@ _onQuantityChange = e => {
 }
 _onFormSubmit = e => {
     e.preventDefault();
-    const fullItem = this.items.find(item => this.props.form.selectedProductId === item.id)
-    const {name, priceInCents} = fullItem
+    const nItem = this.items.find(item => this.props.form.selectedProductId === item.id)
+    const {name, priceInCents} = nItem
     this.props.addItemToCart(name, priceInCents)
 }
-
+*/
   render () {
     let optionTags = this.products.map(product => <option key={product.id} value={product.id}>{product.product}</option>)
     return (

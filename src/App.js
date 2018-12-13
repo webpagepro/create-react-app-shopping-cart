@@ -7,6 +7,7 @@ import CartItems from './components/CartItems/CartItems'
 import AddCartItem from './components/AddCartItem/AddCartItem'
 
 class App extends Component{
+
   state = {
     choice: [],
      cartItemsList :  [
@@ -14,7 +15,7 @@ class App extends Component{
                           { id: 2, product: { id: 41, name: 'Heavy Duty Concrete Plate', priceInCents: 499 }, quantity: 2 },
                           { id: 3, product: { id: 42, name: 'Intelligent Paper Knife', priceInCents: 1999 }, quantity: 1 }
     ],
-    quantity: 1, 
+    quantity: "1", 
     products: [
                 { id: 40, name: 'Mediocre Iron Watch', priceInCents: 399 },
                 { id: 41, name: 'Heavy Duty Concrete Plate', priceInCents: 499 },
@@ -27,22 +28,43 @@ class App extends Component{
                 { id: 48, name: 'Awesome Leather Shoes', priceInCents: 3990 }
 ], 
 form: {
-  quantity: "1",
-  selectedProductId: 40
+  quantity: 1,
+  selectedProductId: "40"
 }
   }
 
   addItemToCart = (name, priceInCents) => {
-    this.setState(prevState => {
-      return {
-        cartItems: [...prevState.cartItems, {
+    this.setState({cartItems: [this.setState.cartItems, {
           id: this.state.form.selectedProductId,
           name,
           priceInCents,
           quantity: this.state.form.quantity
         }]
       }
-    })
+    )
+}
+
+updateQuantity = newQuantity => {
+  this.setState(prevState => {
+    return {
+      form: {
+        ...prevState.form,
+        quantity: newQuantity,
+      }
+    }
+  })
+}
+
+updateSelectedProductId = nItem => {
+  this.setState(prevState => {
+    return {
+      form: {
+        ...prevState.form,
+        selectedProductId: nItem
+      }
+    }
+  })
+
 }
 
 render() {
@@ -56,7 +78,7 @@ render() {
        <CartHeader/>
        
       <CartItems cartItemsList={this.state.products} products={this.state.products} />
-      <AddCartItem addItemToCartFunc={this.addItemToCart} products={this.state.products}/>
+      <AddCartItem addItemToCart={this.addItemToCart} products={this.state.addItemToCart}/>
       
        </FormGroup> 
       <Footer copy = "2018"/>
@@ -67,6 +89,7 @@ render() {
   );
 }
 }
+
 
 
 export default App;

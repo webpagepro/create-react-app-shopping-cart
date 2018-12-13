@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import CartItem from '../CartItem/CartItem'
 
 const CartItems = ({products}) => {
