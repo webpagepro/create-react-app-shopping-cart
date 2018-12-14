@@ -5,14 +5,14 @@ class AddCartItem extends React.Component {
 
 
   state = {
-    quantity: 0,
+    quantity: 1,
     product_id: 1
   }
 
   handleChange = e => {
-    let {name, value } = e.target.value
+    let {name, value } = this.props
     this.setState({
-      [name]: value
+      [name]: this.value
 
     }) 
   }
@@ -50,7 +50,7 @@ console.log("addCartItem: ", this)
                           type="text" 
                           name="selectItem"
                           id="selectItem"
-                          onChange={this.handleChange} product="quantity" 
+                          onChange={this.handleChange} quantity="quantity" 
                           value={this.props.quantity} /></p>
                           
        <Button style={{margin:'10px'}}>Submit</Button>

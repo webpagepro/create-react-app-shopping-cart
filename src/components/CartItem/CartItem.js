@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 
 const CartItem = ({data}) => {
+  console.log("data: ", data)
     return (
 
       <div className="list-group-item">
