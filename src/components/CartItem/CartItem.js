@@ -1,15 +1,14 @@
 import React, { Component } from 'react'
 
 
-const CartItem = ({item}) => {
-
+const CartItem = ({data}) => {
     return (
 
       <div className="list-group-item">
       <div className="row">
-          <div className="col-md-8">{item.name}</div>
-          <div className="col-md-2">{item.priceInCents}</div>
-          <div className="col-md-2">{item.quantity}</div>
+          <div className="col-md-8">{data.name}</div>
+          <div className="col-md-2">{data.priceInCents}</div>
+          <div className="col-md-2">{data.quantity}</div>
          
         </div> 
         
