@@ -27,15 +27,10 @@ class App extends Component{
       { id: 47, name: 'Ergonomic Bronze Lamp', priceInCents: 40000 },
       { id: 48, name: 'Awesome Leather Shoes', priceInCents: 3990 },
     ]
-, 
-form: {
-  quantity: 1,
-  selectedProductId: "40"
-}
   }
 
   addItemToCart = (newItem) => {
-    this.setState({ products: [...this.state.products, newItem]})
+    this.setState({ products: [...this.state.products.name, newItem]})
     console.log('newItem: ', newItem);
 
   }

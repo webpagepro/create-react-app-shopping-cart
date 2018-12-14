@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React from 'react'
 import CartItem from '../CartItem/CartItem'
 
 const CartItems = ({products}) => {
+  console.log("CartItems: ", products)
     let cartItems = products.map(data => {
         return <CartItem key={data.id} data={data} />
       })

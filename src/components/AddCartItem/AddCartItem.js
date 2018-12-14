@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap'
+import { Button, Form, FormGroup } from 'reactstrap'
 
 class AddCartItem extends React.Component {
 
@@ -10,9 +10,9 @@ class AddCartItem extends React.Component {
   }
 
   handleChange = e => {
-    let {name, value } = this.props
+    let {name, value } = e.target.value
     this.setState({
-      [name]: this.value
+      [name]: value
 
     }) 
   }
