@@ -3,11 +3,10 @@ import { Button, Form, FormGroup } from 'reactstrap'
 
 class AddCartItem extends React.Component {
 
-
   state = {
     quantity: 1,
-    product_id: '',
-    price: this.price
+    product_id: 40,
+  
   }
 
   handleChange = e => {
@@ -21,7 +20,7 @@ class AddCartItem extends React.Component {
   handleSubmit = e => {
     e.preventDefault();
     
-    this.props.addItemToCart(this.state)
+    this.props.product.addItemToCart(this.state)
   }
   /*
     _onSelectChange = e => {
@@ -37,11 +36,14 @@ class AddCartItem extends React.Component {
       this.props.addItemToCart(name, priceInCents)
   }
   */
+
+
   render() {
      console.log("addCartItem: ", this)
+     console.log("Add ", this.props)
 
 
-    let optionTags = this.props.products.map(product => <option key={product.id} value={this.props.product}>{product.name}</option>)
+    let optionTags = this.props.addItemToCart.map(product => <option key={product.id} value={this.props.addItemToCart}>{product.name}</option>)
     return (
       <FormGroup>
         <form onSubmit={this.handleSubmit}>

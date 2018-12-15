@@ -1,10 +1,11 @@
 import React from 'react'
 import CartItem from '../CartItem/CartItem'
 
-const CartItems = ({products}) => {
-  console.log("CartItems: ", products)
-    let cartItems = products.map(data => {
-        return <CartItem key={data.id} data={data} />
+const CartItems = (props) => {
+  console.log("CartItems: ", props)
+
+    let cartItems = props.products.map(item => {
+        return <CartItem key={item.id} item={item} />
       })
       return (
         <div className="container">
