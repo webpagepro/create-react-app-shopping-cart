@@ -9,13 +9,12 @@ import AddCartItem from './components/AddCartItem/AddCartItem'
 class App extends Component {
 
   state = {
-    products: [
+    items: [
       { id: 1, product: { id: 40, name: 'Mediocre Iron Watch', priceInCents: 399 }, quantity: 1 },
       { id: 2, product: { id: 41, name: 'Heavy Duty Concrete Plate', priceInCents: 499 }, quantity: 2 },
       { id: 3, product: { id: 42, name: 'Intelligent Paper Knife', priceInCents: 1999 }, quantity: 1 }
     ],
-    quantity: 1,
-    dropdownLst: [
+    products: [
       { id: 40, name: 'Mediocre Iron Watch', priceInCents: 399 },
       { id: 41, name: 'Heavy Duty Concrete Plate', priceInCents: 499 },
       { id: 42, name: 'Intelligent Paper Knife', priceInCents: 1999 },
@@ -26,11 +25,11 @@ class App extends Component {
       { id: 47, name: 'Ergonomic Bronze Lamp', priceInCents: 40000 },
       { id: 48, name: 'Awesome Leather Shoes', priceInCents: 3990 },
     ]
+    
 
   }
-
   addItemToCart = (newItem) => {
-    this.setState({ dropdownLst: [...this.state.props.products, newItem] })
+    this.setState({ items: this.state.items.product.concat(newItem)})
     console.log('newItem: ', newItem);
 
   }
@@ -43,10 +42,6 @@ class App extends Component {
       }]
     }*/
 
-
-
-
-
   render() {
 
 
@@ -57,8 +52,8 @@ class App extends Component {
           <FormGroup>
             <CartHeader />
             
-            <CartItems products={this.state.products} products={this.state.products} />
-<AddCartItem addItemToCart={this.state.dropdownLst} products={this.state.props} />
+            <CartItems items={this.state.items} />
+            <AddCartItem products={this.state.products} addItemToCart={this.state.addItemToCart} />{/**/}
 
           </FormGroup>
           <Footer copy="2018" />
