@@ -4,18 +4,19 @@ import { Button, Form, FormGroup } from 'reactstrap'
 class AddCartItem extends React.Component {
 
   state = {
-    quantity: 1,
+    quantity: 0,
     product_id: 40,
   
   }
 
   handleChange = e => {/**/
-    let { name, value} = e.target 
+    let { name, value} = e.target.value 
     this.setState({
       [name]: value
+
     })
    
-   console.log("this ", this)
+      console.log("this ", this)
 
   }
 
@@ -23,12 +24,13 @@ class AddCartItem extends React.Component {
     e.preventDefault();
     const nItem = this.props.items.find(item => this.state.product_id === item.id)
    const {name, priceInCents} = nItem
-   console.log("nItem ", nItem)
    let newItem = {}
    newItem.id = 1;
    newItem.product = nItem;
    newItem.quantity = this.state.quantity87
     this.props.addItemToCart(newItem);
+    console.log("nItem ", nItem)
+
   }
   
 
@@ -56,7 +58,7 @@ class AddCartItem extends React.Component {
             name="product_id"
             id="selectItem"
             onChange={this.handleChange}
-            value={this.state.quantity}/></p>
+            value={this.quantity}/></p>
 
           <Button style={{ margin: '10px' }}>Submit</Button>
         </form>
