@@ -8,6 +8,12 @@ const CartItems = (props) => {
        
         return <CartItem key={item.id} item={item} />
       })
+
+      let total = cartItems.reduce((acc, item) => {
+        console.log("product cartitems:", item)
+        return acc + (item.priceInCents * item.quantity)
+      }, 0)
+
       return (
         <div className="container">
           <h1>Cart Items</h1>
@@ -21,7 +27,7 @@ const CartItems = (props) => {
             </div>
             {cartItems}
           </div>
-         {/*} Total: ${(total/100).toFixed(2)} */}
+         Total: ${(total/100).toFixed(2)} 
         </div>
       )
     }

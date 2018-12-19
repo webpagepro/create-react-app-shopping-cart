@@ -10,7 +10,7 @@ class AddCartItem extends React.Component {
   }
 
   handleChange = e => {/**/
-    let { name, value} = e.target.value 
+    let { name, value} = e.target.value
     this.setState({
       [name]: value
 
@@ -22,12 +22,12 @@ class AddCartItem extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const nItem = this.props.items.find(item => this.state.product_id === item.id)
-   const {name, priceInCents} = nItem
+    const nItem = this.props.products.find(item => this.state.product_id === item.id)
+   const {name, quantity} = nItem
    let newItem = {}
    newItem.id = 1;
    newItem.product = nItem;
-   newItem.quantity = this.state.quantity87
+   newItem.quantity = this.state.quantity 
     this.props.addItemToCart(newItem);
     console.log("nItem ", nItem)
 
@@ -39,7 +39,7 @@ class AddCartItem extends React.Component {
     console.log("AddCartItem render: ", this)
 
 
-    let optionTags = this.props.items.map(product => {
+    let optionTags = this.props.products.map(product => {
     return(
               <option key={product.id} value={product.id}>{product.name}</option>
 
@@ -58,7 +58,7 @@ class AddCartItem extends React.Component {
             name="product_id"
             id="selectItem"
             onChange={this.handleChange}
-            value={this.quantity}/></p>
+            value={this.state.quantity}/></p>
 
           <Button style={{ margin: '10px' }}>Submit</Button>
         </form>

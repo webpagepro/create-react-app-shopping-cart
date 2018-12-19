@@ -53,7 +53,7 @@ class App extends Component {
             <CartHeader />
             
             <CartItems items={this.state.items} />
-            <AddCartItem items={this.state.products} addItemToCart={this.addItemToCart} />{/**/}
+            <AddCartItem products={this.state.products} addItemToCart={this.addItemToCart} />{/**/}
 
           </FormGroup>
           <Footer copy="2018" />
