@@ -29,8 +29,8 @@ class App extends Component {
 
   }
   addItemToCart = (newItem) => {
-    this.setState({ items: this.state.items.product.concat(newItem)})
-    console.log('newItem: ', newItem);
+  this.setState({ items: this.state.items.concat(newItem)})
+   console.log('addItemToCart App: ', this);
 
   }
 
@@ -53,7 +53,7 @@ class App extends Component {
             <CartHeader />
             
             <CartItems items={this.state.items} />
-            <AddCartItem products={this.state.products} addItemToCart={this.state.addItemToCart} />{/**/}
+            <AddCartItem products={this.state.products} addItemToCart={this.addItemToCart} />{/**/}
 
           </FormGroup>
           <Footer copy="2018" />

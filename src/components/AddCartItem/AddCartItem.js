@@ -4,14 +4,13 @@ import { Button, Form, FormGroup } from 'reactstrap'
 class AddCartItem extends React.Component {
 
   state = {
-    quantity: 1,
+    quantity: 0,
     product_id: 40,
   
   }
 
   handleChange = e => {
-    let { name, value} = e.target.value
-    console.log("handleChange.", `name: ${name}`, `value: ${value}`)
+    let { name, value} = e.target
     this.setState({
       [name]: value
     })
@@ -19,29 +18,20 @@ class AddCartItem extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    const nItem = this.props.find(item => this.props.addItem.selectedProductId === item.id)
-    const {name, priceInCents} = nItem
-    this.props.addItemToCart(name, priceInCents)
+    const nItem = this.props.products.find(item => this.state.product_id === item.id)
+   //const {name, priceInCents} = nItem
+   console.log("nItem ", nItem)
+   let newItem = {}
+   newItem.id = 340;
+   newItem.product = nItem;
+   newItem.quantity = e.target
+    this.props.addItemToCart(newItem);
   }
-  /*
-    _onSelectChange = e => {
-      this.props.updateSelectedProductId(e.target.value)
-  }
-  _onQuantityChange = e => {
-      this.props.updateQuantity(e.target.value)
-  }
-  _onFormSubmit = e => {
-      e.preventDefault();
-      const nItem = this.items.find(item => this.props.form.selectedProductId === item.id)
-      const {name, priceInCents} = nItem
-      this.props.addItemToCart(name, priceInCents)
-  }
-  */
-
+  
 
   render() {
      
-    console.log("AddCartItem render: ", this.props.products)
+    console.log("AddCartItem render: ", this.props.product.name)
 
 
     let optionTags = this.props.products.map(product => {
@@ -63,7 +53,7 @@ class AddCartItem extends React.Component {
             name="product_id"
             id="selectItem"
             onChange={this.handleChange}
-            value={this.props.quantity}/></p>
+            value={this.state.quantity}/></p>
 
           <Button style={{ margin: '10px' }}>Submit</Button>
         </form>
