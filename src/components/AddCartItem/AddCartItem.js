@@ -4,37 +4,40 @@ import { Button, Form, FormGroup } from 'reactstrap'
 class AddCartItem extends React.Component {
 
   state = {
-    quantity: 0,
+    quantity: 1,
     product_id: 40,
   
   }
 
-  handleChange = e => {
-    let { name, value} = e.target
+  handleChange = e => {/**/
+    let { name, value} = e.target 
     this.setState({
       [name]: value
     })
+   
+   console.log("this ", this)
+
   }
 
   handleSubmit = e => {
     e.preventDefault();
-    const nItem = this.props.products.find(item => this.state.product_id === item.id)
-   //const {name, priceInCents} = nItem
+    const nItem = this.props.items.find(item => this.state.product_id === item.id)
+   const {name, priceInCents} = nItem
    console.log("nItem ", nItem)
    let newItem = {}
-   newItem.id = 340;
+   newItem.id = 1;
    newItem.product = nItem;
-   newItem.quantity = e.target
+   newItem.quantity = this.state.quantity87
     this.props.addItemToCart(newItem);
   }
   
 
   render() {
      
-    console.log("AddCartItem render: ", this.props.product.name)
+    console.log("AddCartItem render: ", this)
 
 
-    let optionTags = this.props.products.map(product => {
+    let optionTags = this.props.items.map(product => {
     return(
               <option key={product.id} value={product.id}>{product.name}</option>
 

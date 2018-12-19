@@ -2,7 +2,7 @@ import React from 'react'
 import CartItem from '../CartItem/CartItem'
 
 const CartItems = (props) => {
- console.log("CartItems: ", props.items)
+ console.log("CartItems: ", props)
 
     let cartItems = props.items.map(item => {
        
