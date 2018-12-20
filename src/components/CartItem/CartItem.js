@@ -2,7 +2,7 @@ import React from 'react'
 
 
 const CartItem = (props) => {
-  console.log("CartItem item: ", props.item.product.name)
+  console.log("CartItem item: ", props)
     return (
 
       <div className="list-group-item">

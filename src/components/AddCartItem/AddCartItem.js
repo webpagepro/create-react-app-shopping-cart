@@ -4,13 +4,13 @@ import { Button, Form, FormGroup } from 'reactstrap'
 class AddCartItem extends React.Component {
 
   state = {
-    quantity: 0,
+    quantity: 1,
     product_id: 40,
   
   }
 
   handleChange = e => {/**/
-    let { name, value} = e.target.value
+    let { name, value} = e.target
     this.setState({
       [name]: value
 
@@ -21,13 +21,16 @@ class AddCartItem extends React.Component {
   }
 
   handleSubmit = e => {
+    let len = (this.props.products).length;
+    console.log("len ", len)
+
     e.preventDefault();
-    const nItem = this.props.products.find(item => this.state.product_id === item.id)
+    const nItem = this.props.products.find(item => Number(this.state.product_id) === item.id)
    const {name, quantity} = nItem
    let newItem = {}
-   newItem.id = 1;
+   newItem.id = len+1;
    newItem.product = nItem;
-   newItem.quantity = this.state.quantity 
+   newItem.quantity = this.state.quantity;
     this.props.addItemToCart(newItem);
     console.log("nItem ", nItem)
 
@@ -55,7 +58,7 @@ class AddCartItem extends React.Component {
 
           <p>Quantity: <input
             type="text"
-            name="product_id"
+            name="quantity"
             id="selectItem"
             onChange={this.handleChange}
             value={this.state.quantity}/></p>
